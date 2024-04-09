@@ -1,3 +1,3 @@
 {{ config(materialized='table') }}
 
-select 1 as age ;
+select 1 as age 
