@@ -1,1 +1,1 @@
-select 1 as age
+select 2 as age
