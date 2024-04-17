@@ -1,0 +1,15 @@
+sources:
+    - name: poc
+      database: DEV_LANDING
+      description: "oxford dev landing database"
+      schema: poc
+      tables:
+        - name: CUSTOMERS_JSON_DATA_TBL
+        - name: ORDERS_JSON_JSON_DATA_TBL
+        - name: PRODUCTS_JSON_DATA_TBL
+        - name: RETURNS_DATA_JSON_DATA_TBL
+        - name: UPDATED_SHIPMENTS_JSON_DATA_TBL
+          #freshness:
+          #warn_after: {count: 1, period: day}
+          #error_after: {count: 3, period: day}
+          #loaded_at_field: elt_inserted_timestamp 
