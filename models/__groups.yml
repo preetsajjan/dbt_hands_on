@@ -1,0 +1,13 @@
+groups: 
+  - name: stage
+    owner:
+        name: Tarun Nahar
+        email: tnahar@oxfordinc.com
+  - name: marts
+    owner:
+        name: Priya Chauhan
+        email: pchauhan@oxfordinc.com
+  - name: dwh
+    owner:
+        name: Preeti Sajjan
+        email: psajjan@oxfordinc.com

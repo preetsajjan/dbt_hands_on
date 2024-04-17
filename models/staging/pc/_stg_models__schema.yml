@@ -1,0 +1,301 @@
+version: 2
+
+models:
+  - name: stg_pc__customers_json_data_tbl
+    description: "View containing customer information"
+    #group: stage
+    #access: public
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: ADDRESS
+        data_type: string
+        description: "Customer address"
+        tests:
+          - not_null
+      - name: FIRST_NAME
+        data_type: string
+        description: "Customer first name"
+        tests:
+          - not_null
+      - name: Customer_ID
+        data_type: string
+        description: "Customer ID"
+        tests:
+          - unique
+          - not_null
+      - name: LAST_NAME
+        data_type: string
+        description: "Customer last name"
+        tests:
+          - not_null
+      - name: LAST_UPDATED_AT
+        data_type: datetime
+        description: "Timestamp of last customer update"
+        tests:
+          - not_null
+      - name: STATE
+        data_type: string
+        description: "Customer state"
+        tests:
+          - not_null
+      - name: ZIP_CODE
+        data_type: string
+        description: "Customer ZIP code"
+        tests:
+          - not_null
+
+      - name: LOADED_AT
+        data_type: datetime
+        description: "Tiemstamp when the row was loaded"
+        tests:
+          - not_null
+
+  - name: stg_pc__orders_json_json_data_tbl
+    description: "View containing pre-order information"
+    #group: stage
+    #access: protected
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: CUSTOMER_ID
+        data_type: string
+        description: "Customer ID"
+        tests:
+          - not_null
+      - name: ORDER_DATE
+        data_type: string
+        description: "Order date"
+        tests:
+          - not_null
+      - name: ORDER_ID
+        data_type: string
+        description: "Order ID"
+        tests:
+          - unique
+          - not_null
+      - name: GIFT_WRAPPING
+        data_type: string
+        description: "Gift wrapping status"
+      - name: ITEM_ID
+        data_type: string
+        description: "Item ID"
+
+      - name: ORDER_LINE_ID
+        data_type: string
+        description: "Order line ID"
+
+      - name: QUANTITY
+        data_type: int
+        description: "Quantity ordered"
+
+      - name: UNIT_PRICE
+        data_type: float
+        description: "Unit price"
+
+      - name: ORDER_SOURCE
+        data_type: string
+        description: "Order source"
+        tests:
+          - not_null
+      - name: ORDER_STATUS
+        data_type: string
+        description: "Order status"
+        tests:
+          - not_null
+      - name: PAYMENT_METHOD
+        data_type: string
+        description: "Payment method"
+        tests:
+          - not_null
+      - name: SHIPPING_METHOD
+        data_type: string
+        description: "Shipping method"
+        tests:
+          - not_null
+
+  - name: stg_pc__products_json_data_tbl
+    description: "View containing pre-product information"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: BRAND
+        data_type: string
+        description: "Product brand"
+        tests:
+          - not_null
+      - name: CATEGORY
+        data_type: string
+        description: "Product category"
+        tests:
+          - not_null
+      - name: COLOR
+        data_type: string
+        description: "Product color"
+        tests:
+          - not_null
+      - name: DESCRIPTION
+        data_type: string
+        description: "Product description"
+        tests:
+          - not_null
+      - name: GENDER_TARGET
+        data_type: string
+        description: "Target gender for the product"
+        tests:
+          - not_null
+      - name: INVENTORY_COUNT
+        data_type: string
+        description: "Inventory count of the product"
+        tests:
+          - not_null
+      - name: MATERIAL
+        data_type: string
+        description: "Material of the product"
+        tests:
+          - not_null
+      - name: PRICE
+        data_type: string
+        description: "Price of the product"
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+        data_type: string
+        description: "Product ID"
+        tests:
+          - unique
+          - not_null
+      - name: PRODUCT_NAME
+        data_type: string
+        description: "Name of the product"
+        tests:
+          - not_null
+      - name: RELEASE_DATE
+        data_type: date
+        description: "Release date of the product"
+        tests:
+          - not_null
+      - name: SEASON
+        data_type: string
+        description: "Season for which the product is intended"
+        tests:
+          - not_null
+      - name: SIZE
+        data_type: string
+        description: "Size of the product"
+        tests:
+          - not_null
+
+  - name: stg_pc__returns_data_json_data_tbl
+    description: "View containing pre-return information"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: CUSTOMER_ID
+        data_type: string
+        description: "Customer ID"
+        tests:
+          - not_null
+      - name: ORDER_DATE
+        data_type: timestamp
+        description: "Order date"
+        tests:
+          - not_null
+      - name: ORDER_ID
+        data_type: string
+        description: "Order ID"
+      - name: RETURN_DATE
+        data_type: timestamp
+        description: "Return date"
+        tests:
+          - not_null
+      - name: RETURN_ID
+        data_type: string
+        description: "Return ID"
+        tests:
+          - unique
+          - not_null
+      - name: GIFT_WRAPPING
+        data_type: string
+        description: "Gift wrapping status"
+      - name: ITEM_ID
+        data_type: string
+        description: "Item ID"
+
+      - name: ORDER_LINE_ID
+        data_type: string
+        description: "Order line ID"
+
+      - name: QUANTITY
+        data_type: string
+        description: "Quantity"
+
+      - name: RETURN_ORDER_LINE_ID
+        data_type: string
+        description: "Return order line ID"
+ 
+      - name: UNIT_PRICE
+        data_type: string
+        description: "Unit price"
+
+      - name: RETURNED_STATUS
+        data_type: string
+        description: "Returned status"
+        tests:
+          - not_null
+  
+  - name: stg_pc__updated_shipments_json_data_tbl
+    description: "View containing pre-updated shipment information"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: ACTUAL_DELIVERY_DATE
+        data_type: timestamp
+        description: "Actual delivery date"
+        tests:
+          - not_null
+      - name: CARRIER
+        data_type: string
+        description: "Carrier"
+        tests:
+          - not_null
+      - name: CUSTOMER_ID
+        data_type: string
+        description: "Customer ID"
+        tests:
+          - not_null
+      - name: ESTIMATED_DELIVERY_DATE
+        data_type: timestamp
+        description: "Estimated delivery date"
+        tests:
+          - not_null
+      - name: ORDER_ID
+        data_type: string
+        description: "Order ID"
+        tests:
+          - not_null
+      - name: SHIPMENT_ID
+        data_type: int
+        description: "Shipment ID"
+        tests:
+          - not_null
+      - name: SHIPPING_COST
+        data_type: float
+        description: "Shipping cost"
+        tests:
+          - not_null
+      - name: TOTAL_QUANTITY
+        data_type: int
+        description: "Total quantity"
+        tests:
+          - not_null
+      - name: TRACKING_NUMBER
+        data_type: int
+        description: "Tracking number"
+        tests:
+          - not_null
